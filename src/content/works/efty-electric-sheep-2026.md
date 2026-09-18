@@ -8,8 +8,8 @@ tags:
   - Firebase
   - ESP32
   - AI
-img: "../../assets/works/efty-icon.png"
-img_alt: "ぬいぐるみ型デバイス「Efty Bear」を表した、えふてぃのアイコン"
+img: "../../assets/works/efty-bear.jpg"
+img_alt: "ぬいぐるみ型の会話デバイス「Efty Bear」"
 ---
 
 ## 概要
