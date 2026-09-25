@@ -11,10 +11,10 @@ const allArticles = (await getCollection('articles')).sort(
 const articles = allArticles.slice(0, 3);
 ---
 
-<section class="section with-background">
+<section id="articles" class="section with-background">
 	<header class="section-header stack gap-2 lg:gap-4">
 		<p class="eyebrow">Writing</p>
-		<h3>Articles</h3>
+		<h2>Articles</h2>
 	</header>
 
 	<div class="gallery">
@@ -41,6 +41,11 @@ const articles = allArticles.slice(0, 3);
 </section>
 
 <style>
+	.section-header h2 {
+		color: var(--gray-0);
+		font-size: var(--text-2xl);
+	}
+
 	.section-footer {
 		display: flex;
 		justify-content: flex-end;
@@ -77,5 +82,11 @@ const articles = allArticles.slice(0, 3);
 	.section-link:hover span,
 	.section-link:focus-visible span {
 		transform: translateX(3px);
+	}
+
+	@media (min-width: 50em) {
+		.section-header h2 {
+			font-size: var(--text-4xl);
+		}
 	}
 </style>
