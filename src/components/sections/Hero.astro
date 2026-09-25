@@ -38,18 +38,18 @@ const { align = 'center', tagline, title } = Astro.props;
 		color: var(--gray-300);
 	}
 
+	.start {
+		text-align: start;
+	}
+
+	.start .title,
+	.start .tagline {
+		margin-inline: unset;
+	}
+
 	@media (min-width: 50em) {
 		.hero {
 			font-size: var(--text-xl);
-		}
-
-		.start {
-			text-align: start;
-		}
-
-		.start .title,
-		.start .tagline {
-			margin-inline: unset;
 		}
 
 		.title {

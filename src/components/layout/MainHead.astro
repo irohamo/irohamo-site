@@ -7,16 +7,28 @@ interface Props {
 }
 
 const {
-	title = 'irohamo',
-	description = 'portfolio site',
+	title = 'Shu Kawakami | irohamo',
+	description = 'ソフトウェア開発と津軽三味線。ShamiScoreやアプリ、Web、ハードウェアのプロジェクトを紹介します。',
 } = Astro.props;
+const pageTitle = title.endsWith(' | irohamo') ? title : `${title} | irohamo`;
+const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
 ---
 
 <meta charset="UTF-8" />
-<meta name="description" property="og:description" content={description} />
+<meta name="description" content={description} />
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} />
-<title>{title}</title>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="irohamo" />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:locale" content="ja_JP" />
+<meta name="twitter:card" content="summary" />
+{canonicalURL && <>
+	<meta property="og:url" content={canonicalURL} />
+	<link rel="canonical" href={canonicalURL} />
+</>}
+<title>{pageTitle}</title>
 
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />

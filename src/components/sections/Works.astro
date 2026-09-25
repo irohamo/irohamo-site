@@ -3,16 +3,17 @@ import Grid from '../ui/Grid.astro';
 import PortfolioPreview from '../cards/PortfolioPreview.astro';
 import { getCollection } from 'astro:content';
 
-const projects = (await getCollection('works'))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
-
-const featuredProjects = projects.slice(0, 4);
+const projects = await getCollection('works');
+const featuredProjects = projects
+	.filter((project) => project.data.featuredOrder !== undefined)
+	.sort((a, b) => a.data.featuredOrder! - b.data.featuredOrder!)
+	.slice(0, 4);
 ---
 
-<section class="section with-background with-cta">
+<section id="works" class="section with-background with-cta">
 	<header class="section-header stack gap-2 lg:gap-4">
-		<p class="eyebrow">Portfolio</p>
-		<h3>Works</h3>
+		<p class="eyebrow">Selected work</p>
+		<h2>Featured projects</h2>
 	</header>
 
 	<div class="gallery">
@@ -28,7 +29,7 @@ const featuredProjects = projects.slice(0, 4);
 	</div>
 
 	{
-		projects.length > 4 && (
+		projects.length > featuredProjects.length && (
 			<footer class="works-footer">
 				<a href="/works" class="works-link">
 					すべて見る<span aria-hidden="true">→</span>
@@ -39,6 +40,11 @@ const featuredProjects = projects.slice(0, 4);
 </section>
 
 <style>
+	.section-header h2 {
+		color: var(--gray-0);
+		font-size: var(--text-2xl);
+	}
+
 	.works-footer {
 		display: flex;
 		justify-content: flex-end;
@@ -75,5 +81,11 @@ const featuredProjects = projects.slice(0, 4);
 	.works-link:hover span,
 	.works-link:focus-visible span {
 		transform: translateX(3px);
+	}
+
+	@media (min-width: 50em) {
+		.section-header h2 {
+			font-size: var(--text-4xl);
+		}
 	}
 </style>

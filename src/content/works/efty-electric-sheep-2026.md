@@ -1,7 +1,10 @@
 ---
 title: "えふてぃ"
-description: "日常の記憶を記録・構造化し、未来の自分がぬいぐるみと対話できる体験を目指したプロダクト"
+description: "日々の記録を整理し、ぬいぐるみとの会話から思い出を振り返るプロダクト"
 publishDate: 2026-09-13
+featuredOrder: 1
+role: "Team 07 リーダー · 5人チーム"
+result: "優勝 · ForA OneTeam賞"
 tags:
   - Hackathon
   - iOS
@@ -17,6 +20,8 @@ img_alt: "ぬいぐるみ型の会話デバイス「Efty Bear」"
 「えふてぃ」は、日常の音声・写真・位置情報・予定を記録し、出来事として整理することで、将来その記憶をぬいぐるみとの会話から振り返れるようにするプロダクトです。
 
 全国学生対抗SFハッカソン「Electric Sheep 2026」のテーマ「100歳のわたしの幸せ」に対し、Team 07「ft_friends」の5人で制作しました。開発期間は2026年7月4日から9月12日で、9月12日・13日の本戦を経て、優勝とForA OneTeam賞を受賞しました。
+
+Team 07ではリーダーを務めました。Git履歴では、川上周名義で記録デバイスのファームウェア、イベント構造化、Efty Bearの会話連携に関わる変更を確認できます。
 
 - [Electric Sheep 2026 公式サイト](https://www.nagoyatv.com/hackathon-electricsheep/)
 

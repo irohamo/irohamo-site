@@ -12,6 +12,9 @@ export const collections = {
 			tags: z.array(z.string()),
 			img: image(),
 			img_alt: z.string().optional(),
+			featuredOrder: z.number().int().positive().optional(),
+			role: z.string().optional(),
+			result: z.string().optional(),
 		}),
 	}),
 
