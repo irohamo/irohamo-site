@@ -44,7 +44,7 @@ const iconLikeStyle = isIconLikeImage
 					</Hero>
 				</div>
 			</header>
-			<main class="wrapper">
+			<main class="wrapper reading-wrapper">
 				<div class="stack gap-10 content reading">
 					{
 					entry.data.img && (
@@ -99,16 +99,25 @@ const iconLikeStyle = isIconLikeImage
         min-width: 0;
         overflow-wrap: anywhere;
     }
-    /* Readable sheet: hides the wave background behind the body text. */
+    /* Keep one text gutter on narrow screens. */
+    .reading-wrapper {
+        padding-inline: 0;
+    }
+    /* Opaque background keeps the waves behind the text hidden. */
     .reading {
         max-width: 72ch;
         background: var(--gray-999);
-        border: 1px solid var(--gray-800);
-        border-radius: 0.5rem;
-        padding: 2rem 1.5rem;
+        border: 0;
+        border-radius: 0;
+        padding: 2rem 1rem;
     }
     @media (min-width: 50em) {
+        .reading-wrapper {
+            padding-inline: 1.5rem;
+        }
         .reading {
+            border: 1px solid var(--gray-800);
+            border-radius: 0.5rem;
             padding: 3rem;
         }
     }
