@@ -2,9 +2,10 @@
 import { defineConfig } from 'astro/config';
 
 import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://irohamo.dev',
-	integrations: [mdx()]
+	site: 'https://www.irohamo.dev',
+	integrations: [mdx(), sitemap()]
 });
