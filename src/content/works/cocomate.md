@@ -16,95 +16,31 @@ img_alt: "ココメイトのアイコン"
 role: "アプリの中核ロジックと外部サービス連携、レビュー・連携のための開発基盤整備"
 tech: [React Native, Expo, TypeScript, Firebase, Google Calendar API, Vertex AI, Google Maps Platform]
 result: "モバイル開発、バックエンド構築、複数の Google 技術の統合、短期間でのチーム開発を経験"
+period: "2026年3月14日〜3月22日"
 ---
 
 ## 概要
 
-ココメイトは、予定管理に「疲労」「睡眠」「移動」の観点を加え、無理のないスケジュール作成と心のゆとりを支援するモバイルアプリです。
+ココメイトは、予定ごとの疲労度・睡眠状況・移動時間からエネルギー残量を可視化し、予定候補を提案するモバイルアプリです。42 Tokyoの同期4人でチームを組み、GDGoC Hackathon 2026で開発しました。
 
-42 Tokyo の同期4人でチームを組み、GDGoC Hackathon 2026 に出場して開発しました。
-
-一般的なカレンダーアプリでは予定の時間管理が中心ですが、ココメイトでは予定ごとの疲労度、移動時間、睡眠状況をもとに、その日のエネルギー残量を可視化します。さらに、タスクを追加したいときには、身体的・時間的な負担を考慮して最適な時間帯を提案します。
-
-GitHub Link: https://github.com/irohamo/SchedulingAssistant/
-
-## 主な機能
-
-- 今日の体力を 0〜100% のエネルギー残量として表示
-- 疲労・睡眠・移動時間を考慮した予定候補のレコメンド
-- 月・週・日ビューによるカレンダー表示
-- 疲労ヒートマップによる忙しさの可視化
-- Google Calendar との双方向同期
-- Google Routes API / Apple MapKit を用いた移動時間の自動算出
-- 予定後・1日の終わりの疲労フィードバック
-- フィードバック履歴を用いた疲労予測の改善
-- Google Places API による場所オートコンプリート
-- AsyncStorage によるオフライン閲覧対応
-- 予定リマインド、フィードバック通知、睡眠アラート、エネルギー不足予測アラート
+[GitHub](https://github.com/irohamo/SchedulingAssistant/)
 
 ## 担当
 
-4人チームでの開発において、主にアプリの中核ロジックと外部サービス連携を担当しました。
+アプリの中核ロジックと外部サービス連携を担当しました。Firebase Authentication / Google Sign-Inによる認証、FirestoreとAsyncStorageによるデータ永続化、Google Calendarとの予定同期を実装しました。
 
-Firebase Authentication / Google Sign-In による認証、Firestore と AsyncStorage を組み合わせたデータ永続化、Google Calendar API との予定同期機能を実装しました。また、疲労・睡眠・移動時間を考慮して予定候補を提示するレコメンドエンジンを設計・実装し、候補時間のスコアリング、エネルギー推移の表示、複数日探索、予定保存導線まで担当しました。
+また、予定候補のスコアリング・複数日探索・エネルギー推移の表示・予定保存までの導線、Google Routes API / Apple MapKitによる移動時間算出、Expo Notificationsによる通知、Vertex AI / Geminiによるタグ提案・文言生成を担当しました。チーム開発ではPRテンプレートとDiscord通知を整備しました。
 
-さらに、Google Routes API / Apple MapKit を用いた移動時間算出、Expo Notifications による予定リマインド・フィードバック通知・睡眠アラート、Vertex AI / Gemini を用いたタグ提案・文言生成機能も実装しました。チーム開発面では、PRテンプレートやDiscord通知など、レビュー・連携のための開発基盤整備も担当しました。
+## 課題・工夫・結果
 
-## 技術スタック
+### 時刻だけでは判断できない予定の負担を扱う
 
-### Mobile
+予定カテゴリ、所要時間、前後の移動時間、睡眠状況をもとにエネルギー推移を計算しました。予定追加時には候補時間ごとの推移をシミュレーションし、「おすすめ」「安定ペース」「高負荷」と表示することで、負担を見ながら候補を選べるようにしました。
 
-- React Native
-- Expo
-- Expo Router
-- TypeScript
-- React Native Reanimated
-- React Native Gesture Handler
-- AsyncStorage
-- Expo Notifications
+### カレンダー同期で差分を取得する
 
-### Backend / Infrastructure
+Google Calendar APIで予定の読み取り・作成・更新・削除に対応しました。同期では`syncToken`を使い、毎回すべての予定を取得せず、差分を取得する設計にしました。
 
-- Firebase Authentication
-- Cloud Firestore
-- Firebase Cloud Functions
-- Firebase Admin SDK
-- Node.js 20
-- GitHub Actions
+### 意味が近い予定タグの重複を防ぐ
 
-### External APIs / AI
-
-- Google Sign-In
-- Google Calendar API
-- Google Routes API
-- Google Places API
-- Google Geocoding API
-- Apple MapKit
-- Vertex AI Embeddings
-- Gemini 2.5 Flash Lite
-
-## 工夫した点
-
-### 疲労・移動・睡眠を統合したスケジューリング
-
-予定の開始時刻や終了時刻だけでなく、予定カテゴリ、所要時間、前後の移動時間、睡眠状況を考慮して、ユーザーのエネルギー推移を計算する仕組みを実装しました。
-
-予定追加時には、候補時間ごとのエネルギー推移をシミュレーションし、「おすすめ」「安定ペース」「高負荷」といった形で、ユーザーが直感的に判断できるUIを設計しました。
-
-### Google Calendar との効率的な同期
-
-Google Calendar API を利用して、予定の読み取り・作成・更新・削除に対応しました。同期処理では `syncToken` を利用し、毎回すべての予定を取得するのではなく、差分だけを取得する設計にしました。
-
-### AIを用いた予定タグの自動提案
-
-Vertex AI を活用し、イベントタイトルから予定タグを自動提案する機能を実装しました。また、`gemini-embedding-001` によるベクトル埋め込みを使い、既存タグとの類似度を計算することで、意味的に近いタグの重複を防ぐ仕組みを作りました。
-
-### チーム開発を支える仕組み
-
-短期間のハッカソン開発でもレビューと連携を回しやすくするため、PRテンプレートやDiscord通知を整備しました。機能実装だけでなく、チームが素早く意思決定しながら開発できる環境づくりも行いました。
-
-## 成果
-
-予定を「時間」だけで管理するのではなく、「疲労」や「移動負担」まで含めて扱うことで、ユーザーが無理のないスケジュールを立てられる体験を目指しました。
-
-技術面では、React Native / Expo によるモバイル開発、Firebase を用いたバックエンド構築、Google Calendar・Maps・Vertex AI など複数の Google 技術の統合、そして短期間でのチーム開発を経験しました。
+Vertex AIでイベントタイトルからタグを提案し、`gemini-embedding-001`によるベクトル埋め込みで既存タグとの類似度を計算しました。意味が近いタグの重複を防ぐ仕組みにしています。
