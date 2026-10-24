@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="業務委託のご相談"
+	description="Webフロント・モバイルアプリ・バックエンド開発の業務委託について。対応できる範囲、稼働、依頼の流れと相談時にお知らせいただきたい項目をまとめています。"
+>
+	<main class="wrapper">
+		<div class="work stack gap-10">
+			<header class="stack gap-4">
+				<p class="eyebrow">Work</p>
+				<h1>業務委託のご相談</h1>
+				<p>Web・アプリ開発の業務委託のご相談を、個人事業主（屋号 irohamo）として受け付けています。</p>
+			</header>
+
+			<section class="stack gap-4" aria-labelledby="scope">
+				<h2 id="scope">対応できる範囲</h2>
+				<div class="stack gap-4">
+					<div class="stack gap-2">
+						<h3>Webフロント</h3>
+						<p>Next.js / React / Astro を使った開発。</p>
+						<p>関連作品：<a href="/works/irohamo-site/">irohamo site（Astro）</a></p>
+					</div>
+					<div class="stack gap-2">
+						<h3>モバイルアプリ</h3>
+						<p>SwiftUI / Expo を使った開発。</p>
+						<p>関連作品：<a href="/works/shami-score/">ShamiScore（SwiftUI）</a>、<a href="/works/cocomate/">ココメイト（Expo）</a></p>
+					</div>
+					<div class="stack gap-2">
+						<h3>バックエンド</h3>
+						<p>Firebase / Cloud Run を使った開発。</p>
+						<p>関連作品：<a href="/works/cocomate/">ココメイト（Firebase）</a></p>
+					</div>
+				</div>
+			</section>
+
+			<section class="stack gap-4" aria-labelledby="availability">
+				<h2 id="availability">稼働について</h2>
+				<p>学業と並行して、リモートで少なめの稼働からご相談を受け付けています。</p>
+			</section>
+
+			<section class="stack gap-4" aria-labelledby="process">
+				<h2 id="process">依頼の流れ</h2>
+				<ol>
+					<li>相談</li>
+					<li>内容と見積もりのすり合わせ</li>
+					<li>契約</li>
+					<li>開発</li>
+					<li>納品</li>
+				</ol>
+			</section>
+
+			<section class="stack gap-4" aria-labelledby="fees">
+				<h2 id="fees">料金</h2>
+				<p>内容に応じてご相談。</p>
+			</section>
+
+			<section class="stack gap-4" aria-labelledby="inquiry">
+				<h2 id="inquiry">相談時にお知らせいただきたいこと</h2>
+				<ul>
+					<li>やりたいこと</li>
+					<li>期限</li>
+					<li>予算の目安</li>
+					<li>想定する作業量</li>
+				</ul>
+				<p>上記の項目を添えて、<a href="mailto:irohamo@irohamo.dev?subject=%E6%A5%AD%E5%8B%99%E5%A7%94%E8%A8%97%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">irohamo@irohamo.dev</a> までご連絡ください（件名の例：「業務委託のご相談」）。</p>
+			</section>
+		</div>
+	</main>
+</BaseLayout>
+
+<style>
+	.work {
+		max-width: 46rem;
+		margin-inline: auto;
+		padding-block: 3rem;
+		color: var(--gray-200);
+		line-height: 1.8;
+		overflow-wrap: anywhere;
+	}
+
+	h1 {
+		font-size: clamp(1.75rem, 5vw, 3rem);
+		line-height: 1.4;
+	}
+
+	h2 {
+		font-size: var(--text-xl);
+		line-height: 1.5;
+	}
+
+	h3 {
+		font-size: var(--text-md);
+		line-height: 1.5;
+	}
+
+	section {
+		border-top: 1px solid var(--gray-800);
+		padding-top: 2rem;
+	}
+
+	ul,
+	ol {
+		padding-inline-start: 1.5rem;
+	}
+
+	a {
+		text-underline-offset: 0.2em;
+	}
+</style>
