@@ -10,6 +10,8 @@ tags:
   - Frontend
   - Astro
   - Portfolio
+role: "自作ポートフォリオサイトの制作"
+tech: [Astro, Markdown / MDX, Content Collections, HTML / CSS, Preact]
 ---
 
 ## 概要

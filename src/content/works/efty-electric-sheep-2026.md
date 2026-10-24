@@ -13,6 +13,8 @@ tags:
   - AI
 img: "../../assets/works/efty-bear.jpg"
 img_alt: "ぬいぐるみ型の会話デバイス「Efty Bear」"
+tech: [Swift, SwiftUI, Firebase, ESP32, PlatformIO, Arduino, BLE, Wi-Fi, OpenAI Embeddings, OpenAI Realtime API]
+period: "2026年7月4日〜9月12日"
 ---
 
 ## 概要

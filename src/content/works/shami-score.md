@@ -11,6 +11,8 @@ tags:
   - iOS
   - SwiftUI
   - App Store
+tech: [SwiftUI, MVVM, AppKit, UIKit, Swift]
+period: "2022年から開発継続"
 ---
 
 #### 概要

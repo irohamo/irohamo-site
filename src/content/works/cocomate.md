@@ -13,6 +13,9 @@ tags:
   - Google Maps Platform
 img: "../../assets/works/cocomate-appicon.png"
 img_alt: "ココメイトのアイコン"
+role: "アプリの中核ロジックと外部サービス連携、レビュー・連携のための開発基盤整備"
+tech: [React Native, Expo, TypeScript, Firebase, Google Calendar API, Vertex AI, Google Maps Platform]
+result: "モバイル開発、バックエンド構築、複数の Google 技術の統合、短期間でのチーム開発を経験"
 ---
 
 ## 概要
