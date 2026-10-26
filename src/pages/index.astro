@@ -30,7 +30,6 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 						<p class="intro-copy">
 							三味線奏者向け譜面アプリ「ShamiScore」の個人開発や、チームでのアプリ・ハードウェア開発に取り組んでいます。
 						</p>
-						<p class="work-note"><a href="/work">業務委託のご相談も受け付けています。</a></p>
 						<div class="socials" aria-label="ソーシャルリンク">
 							{iconLinks.map(({ href, icon, label }) => (
 								<a href={href} class="social" target="_blank" rel="noopener noreferrer">
@@ -67,16 +66,6 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
 		font-family: var(--font-body);
 		font-size: var(--text-md);
 		line-height: 1.75;
-	}
-
-	.work-note {
-		font-size: var(--text-sm);
-		line-height: 1.75;
-	}
-
-	.work-note a {
-		color: var(--gray-300);
-		text-underline-offset: 0.2em;
 	}
 
 	.socials {
